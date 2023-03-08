@@ -10,7 +10,13 @@ python = "^3.11"
 django = "^4.1.7"
 django-settings-env = "^4.3.0"
 djangorestframework = "^3.14.0"
-
+psycopg2-binary = "^2.9.5"
+markdown = "^3.4.1"
+django-filter = "^22.1"
+drf-spectacular = "^0.26.0"
+cmdline-mini = "^1.0.2"
+urlpath = "^1.2.0"
+drf-generators = {git = "https://github.com/deeprave/drf-generators.git", develop = true}
 
 [build-system]
 requires = ["poetry-core"]

@@ -1,0 +1,20 @@
+###
+GET localhost:8000/api/gender/
+
+###
+GET localhost:8000/api/age/
+
+###
+GET localhost:8000/api/state/
+
+###
+GET localhost:8000/api/regiontype/
+
+###
+GET localhost:8000/api/region/
+
+###
+GET localhost:8000/api/year/
+
+###
+GET localhost:8000/api/statistic/2
