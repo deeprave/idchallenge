@@ -1,0 +1,41 @@
+version: '3.7'
+
+services:
+
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=${SAUSER}
+      - POSTGRES_PASSWORD=${SAPASS}
+    volumes:
+        - data-pgdata:/var/lib/postgresql/data
+    networks:
+      - internal_net
+    expose:
+      - "5432"
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    restart: always
+
+  backend:
+    image: backend:latest
+    build:
+      context: backend/
+      args:
+        - ARG APP_DIR=/app/backend
+        - DOCKER_USER=${DOCKER_USER}
+        - DOCKER_GROUP=${DOCKER_GROUP}
+    expose:
+      - "8000"
+    ports:
+      - "127.0.0.1:8000:8000"
+    restart: always
+    networks:
+        - internal_net
+
+volumes:
+  data-pgdata:
+
+networks:
+  internal_net:
+

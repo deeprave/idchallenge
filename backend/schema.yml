@@ -1,0 +1,1457 @@
+openapi: 3.0.3
+info:
+  title: .id Challenge API
+  version: 1.0.0
+  description: Meet the challenge
+paths:
+  /api/age/:
+    get:
+      operationId: age_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - age
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedAgeList'
+          description: ''
+    post:
+      operationId: age_create
+      tags:
+      - age
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Age'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Age'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Age'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Age'
+          description: ''
+  /api/age/{id}/:
+    get:
+      operationId: age_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - age
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Age'
+          description: ''
+    put:
+      operationId: age_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - age
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Age'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Age'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Age'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Age'
+          description: ''
+    patch:
+      operationId: age_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - age
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedAge'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedAge'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedAge'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Age'
+          description: ''
+    delete:
+      operationId: age_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - age
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/gender/:
+    get:
+      operationId: gender_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - gender
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedGenderList'
+          description: ''
+    post:
+      operationId: gender_create
+      tags:
+      - gender
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Gender'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Gender'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Gender'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gender'
+          description: ''
+  /api/gender/{id}/:
+    get:
+      operationId: gender_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - gender
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gender'
+          description: ''
+    put:
+      operationId: gender_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - gender
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Gender'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Gender'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Gender'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gender'
+          description: ''
+    patch:
+      operationId: gender_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - gender
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedGender'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedGender'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedGender'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gender'
+          description: ''
+    delete:
+      operationId: gender_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - gender
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/region/:
+    get:
+      operationId: region_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - region
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedRegionList'
+          description: ''
+    post:
+      operationId: region_create
+      tags:
+      - region
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Region'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Region'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Region'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Region'
+          description: ''
+  /api/region/{id}/:
+    get:
+      operationId: region_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - region
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Region'
+          description: ''
+    put:
+      operationId: region_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - region
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Region'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Region'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Region'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Region'
+          description: ''
+    patch:
+      operationId: region_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - region
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedRegion'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedRegion'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedRegion'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Region'
+          description: ''
+    delete:
+      operationId: region_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - region
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/regiontype/:
+    get:
+      operationId: regiontype_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - regiontype
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedRegionTypeList'
+          description: ''
+    post:
+      operationId: regiontype_create
+      tags:
+      - regiontype
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegionType'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RegionType'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RegionType'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegionType'
+          description: ''
+  /api/regiontype/{id}/:
+    get:
+      operationId: regiontype_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - regiontype
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegionType'
+          description: ''
+    put:
+      operationId: regiontype_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - regiontype
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegionType'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RegionType'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RegionType'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegionType'
+          description: ''
+    patch:
+      operationId: regiontype_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - regiontype
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedRegionType'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedRegionType'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedRegionType'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegionType'
+          description: ''
+    delete:
+      operationId: regiontype_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - regiontype
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/state/:
+    get:
+      operationId: state_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - state
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedStateList'
+          description: ''
+    post:
+      operationId: state_create
+      tags:
+      - state
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/State'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/State'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/State'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/State'
+          description: ''
+  /api/state/{id}/:
+    get:
+      operationId: state_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - state
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/State'
+          description: ''
+    put:
+      operationId: state_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - state
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/State'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/State'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/State'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/State'
+          description: ''
+    patch:
+      operationId: state_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - state
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedState'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedState'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedState'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/State'
+          description: ''
+    delete:
+      operationId: state_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - state
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/statistic/:
+    get:
+      operationId: statistic_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - statistic
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedStatisticList'
+          description: ''
+    post:
+      operationId: statistic_create
+      tags:
+      - statistic
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Statistic'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Statistic'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Statistic'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statistic'
+          description: ''
+  /api/statistic/{id}/:
+    get:
+      operationId: statistic_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - statistic
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statistic'
+          description: ''
+    put:
+      operationId: statistic_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - statistic
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Statistic'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Statistic'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Statistic'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statistic'
+          description: ''
+    patch:
+      operationId: statistic_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - statistic
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedStatistic'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedStatistic'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedStatistic'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statistic'
+          description: ''
+    delete:
+      operationId: statistic_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - statistic
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/year/:
+    get:
+      operationId: year_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - year
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedYearList'
+          description: ''
+    post:
+      operationId: year_create
+      tags:
+      - year
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Year'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Year'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Year'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Year'
+          description: ''
+  /api/year/{id}/:
+    get:
+      operationId: year_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - year
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Year'
+          description: ''
+    put:
+      operationId: year_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - year
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Year'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Year'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Year'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Year'
+          description: ''
+    patch:
+      operationId: year_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - year
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedYear'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedYear'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedYear'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Year'
+          description: ''
+    delete:
+      operationId: year_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          pattern: ^([0-9]+|[a-zA-Z0-9_]+)$
+        required: true
+      tags:
+      - year
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '204':
+          description: No response body
+components:
+  schemas:
+    Age:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+          title: AGE
+        age:
+          type: string
+          maxLength: 20
+      required:
+      - age
+      - id
+    Gender:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+          title: SEX_ABS
+        gender:
+          type: string
+          title: Sex
+          maxLength: 8
+      required:
+      - gender
+      - id
+    PaginatedAgeList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Age'
+    PaginatedGenderList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Gender'
+    PaginatedRegionList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Region'
+    PaginatedRegionTypeList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/RegionType'
+    PaginatedStateList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/State'
+    PaginatedStatisticList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Statistic'
+    PaginatedYearList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Year'
+    PatchedAge:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+          title: AGE
+        age:
+          type: string
+          maxLength: 20
+    PatchedGender:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+          title: SEX_ABS
+        gender:
+          type: string
+          title: Sex
+          maxLength: 8
+    PatchedRegion:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+          title: ASGS_2016
+        region:
+          type: string
+          maxLength: 64
+    PatchedRegionType:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          title: REGIONTYPE
+        geography_level:
+          type: string
+          maxLength: 32
+    PatchedState:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+          title: STATE
+        state:
+          type: string
+          maxLength: 32
+    PatchedStatistic:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        value:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        flag_codes:
+          type: string
+          maxLength: 8
+        flags:
+          type: string
+          maxLength: 12
+        gender:
+          type: integer
+          title: SEX_ABS
+        age:
+          type: integer
+          title: AGE
+        state:
+          type: integer
+          title: STATE
+        regiontype:
+          type: string
+          title: REGIONTYPE
+        region:
+          type: integer
+          title: ASGS_2016
+        year:
+          type: integer
+          title: TIME
+    PatchedYear:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+          title: TIME
+        year:
+          type: string
+          title: Census year
+          maxLength: 6
+    Region:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+          title: ASGS_2016
+        region:
+          type: string
+          maxLength: 64
+      required:
+      - id
+      - region
+    RegionType:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          title: REGIONTYPE
+        geography_level:
+          type: string
+          maxLength: 32
+      required:
+      - geography_level
+      - id
+    State:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+          title: STATE
+        state:
+          type: string
+          maxLength: 32
+      required:
+      - id
+      - state
+    Statistic:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        value:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        flag_codes:
+          type: string
+          maxLength: 8
+        flags:
+          type: string
+          maxLength: 12
+        gender:
+          type: integer
+          title: SEX_ABS
+        age:
+          type: integer
+          title: AGE
+        state:
+          type: integer
+          title: STATE
+        regiontype:
+          type: string
+          title: REGIONTYPE
+        region:
+          type: integer
+          title: ASGS_2016
+        year:
+          type: integer
+          title: TIME
+      required:
+      - age
+      - flag_codes
+      - flags
+      - gender
+      - id
+      - region
+      - regiontype
+      - state
+      - value
+      - year
+    Year:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+          title: TIME
+        year:
+          type: string
+          title: Census year
+          maxLength: 6
+      required:
+      - id
+      - year
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

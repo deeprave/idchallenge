@@ -1,0 +1,15 @@
+# variables used to build container .env files used in containers
+DBTYPE
+DBPORT
+DBHOST
+DBNAME
+DBROLE
+DBUSER
+DBPASS
+DATABASE_URL=
+DJANGO_DEBUG
+DJANGO_SECRET_KEY
+
+DJANGO_ROOT=/app/backend
+DOCKER_USER=www-data
+DOCKER_GROUP=www-data

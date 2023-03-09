@@ -147,6 +147,7 @@ if __name__ == '__main__':
 
     from django.conf import settings
     download_dir = settings.DOWNLOAD_PATH
+    download_dir.mkdir(0x777, parents=True, exist_ok=True)
     download_url = urlpath.URL(settings.DOWNLOAD_URL)
 
     dest = download_file(download_url, download_dir / download_url.name)

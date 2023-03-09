@@ -17,6 +17,13 @@ drf-spectacular = "^0.26.0"
 cmdline-mini = "^1.0.2"
 urlpath = "^1.2.0"
 drf-generators = {git = "https://github.com/deeprave/drf-generators.git", develop = true}
+whitenoise = {extras = ["brotli"], version = "^6.4.0"}
+
+[tool.poetry.group.dev.dependencies]
+dbscripts = {git = "https://github.com/deeprave/dbscripts.git"}
+
+[tool.poetry.group.prod.dependencies]
+gunicorn = "^20.1.0"
 
 [build-system]
 requires = ["poetry-core"]
